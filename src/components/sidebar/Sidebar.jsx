@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axios.get(`${process.env.BACKEND_URI}/api/categories`);
       setCats(res.data);
     };
     getCats();
@@ -31,7 +31,7 @@ export default function Sidebar() {
         <ul className="sidebarList">
           {cats.map((c) => (
             <Link to={`/?cat=${c.name}`} className="link">
-            <li className="sidebarListItem">{c.name}</li>
+              <li className="sidebarListItem">{c.name}</li>
             </Link>
           ))}
         </ul>

@@ -13,11 +13,14 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("/auth/register", {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.BACKEND_URI}/api/auth/register`,
+        {
+          username,
+          email,
+          password,
+        }
+      );
       //if successfully registered, redirect to login page
       res.data && window.location.replace("/login");
     } catch (err) {

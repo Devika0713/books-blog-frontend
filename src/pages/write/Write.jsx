@@ -16,7 +16,9 @@ export default function Write() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("/categories");
+        const res = await axios.get(
+          `${process.env.BACKEND_URI}/api/categories`
+        );
         setCategories(res.data);
       } catch (err) {
         console.log(err);
@@ -42,13 +44,16 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post(`${process.env.BACKEND_URI}/api/upload`, data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post(
+        `${process.env.BACKEND_URI}/api/posts`,
+        newPost
+      );
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };
