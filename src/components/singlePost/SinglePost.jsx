@@ -35,20 +35,26 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${process.env.BACKEND_URI}/api/posts/${post._id}`, {
-        data: { username: user.username },
-      });
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
+        {
+          data: { username: user.username },
+        }
+      );
       window.location.replace("/");
     } catch (err) {}
   };
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`${process.env.BACKEND_URI}/api/posts/${post._id}`, {
-        username: user.username,
-        title,
-        desc,
-      });
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
+        {
+          username: user.username,
+          title,
+          desc,
+        }
+      );
       setUpdateMode(false);
     } catch (err) {}
   };
