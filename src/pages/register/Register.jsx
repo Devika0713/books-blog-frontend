@@ -14,7 +14,7 @@ export default function Register() {
     setError(false);
     try {
       const res = await axios.post(
-        `${process.env.BACKEND_URI}/api/auth/register`,
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
         {
           username,
           email,

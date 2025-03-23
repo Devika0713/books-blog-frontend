@@ -30,12 +30,12 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post(`${process.env.BACKEND_URI}/api/upload`, data);
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, data);
       } catch (err) {}
     }
     try {
       const res = await axios.put(
-        `${process.env.BACKEND_URI}/api/users/` + user._id,
+        `${process.env.REACT_APP_API_URL}/api/users/` + user._id,
         updatedUser
       );
       setSuccess(true);
