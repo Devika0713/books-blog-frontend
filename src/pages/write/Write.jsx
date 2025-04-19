@@ -55,7 +55,9 @@ export default function Write() {
         newPost
       );
       window.location.replace("/post/" + res.data._id);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="write">

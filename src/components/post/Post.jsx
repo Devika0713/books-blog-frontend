@@ -2,7 +2,7 @@ import "./post.css";
 import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
-  const PF = "http://localhost:5000/images/"; //TO DO : FIX THIS FOR DEPLOYED VERSION
+  const PF = `${process.env.REACT_APP_API_URL}/images/`; //TO DO : FIX THIS FOR DEPLOYED VERSION
   return (
     <div className="post">
       {post.photo && <img className="postImg" src={PF + post.photo} alt="" />}

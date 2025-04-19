@@ -10,9 +10,11 @@ export default function SinglePost() {
   const location = useLocation();
   //to take the id from the url
   const path = location.pathname.split("/")[2];
+  console.log(path);
 
+  //"http://localhost:5000/images/"
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = `${process.env.REACT_APP_API_URL}/images/`;
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,7 +24,7 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get(
-        `${process.env.BACKEND_URI}/api/posts/` + path
+        `${process.env.REACT_APP_API_URL}/api/posts/` + path
       );
       setPost(res.data);
       setTitle(res.data.title);
