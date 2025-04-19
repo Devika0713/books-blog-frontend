@@ -24,8 +24,11 @@ export default function Sidebar() {
           alt=""
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+          Hello I am Devika
+          <br /> I aim to create solutions which are user friendly, minimal,
+          intuitive and functional. If I’m not designing or pondering over bugs,
+          I spend my time sketching,binge-reading,binge-watching or jamming to
+          kpop songs.
         </p>
       </div>
       <div className="sidebarItem">
