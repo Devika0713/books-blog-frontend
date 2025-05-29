@@ -44,9 +44,13 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, data);
+        const res = await axios.post(
+          `${process.env.REACT_APP_API_URL}/api/upload`,
+          data
+        );
+        console.log(res);
       } catch (err) {
-        console.log(err);
+        console.log("File upload failed: ", err);
       }
     }
     try {
