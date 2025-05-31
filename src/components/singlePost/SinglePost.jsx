@@ -14,7 +14,7 @@ export default function SinglePost() {
 
   //"http://localhost:5000/images/"
   const [post, setPost] = useState({});
-  const PF = `${process.env.REACT_APP_API_URL}/images/`;
+  //const PF = `${process.env.REACT_APP_API_URL}/images/`;
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -66,11 +66,7 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         {post.photo && (
           // eslint-disable-next-line jsx-a11y/img-redundant-alt
-          <img
-            src={PF + post.photo}
-            alt="cover image"
-            className="singlePostImg"
-          />
+          <img src={post.photo} alt="cover image" className="singlePostImg" />
         )}
         {updateMode ? (
           <input
